@@ -24,7 +24,7 @@ with col1:
 
 with col2:
     # Add an image (replace with your own image URL or path)
-    st.image("https://www.example.com/your-image.jpg", caption="A cool image", use_column_width=True)
+    st.image("https://www.example.com/your-image.jpg", caption="A cool image", use_container_width=True)
 
 # Create a radio button for navigating through projects
 st.header("My Projects")
@@ -39,7 +39,7 @@ if project_selection == "Project 1":
         **Description**: An innovative app that helps users manage tasks efficiently.  
         **Technologies Used**: Python, Streamlit, SQLite.
     """)
-    st.image("https://www.example.com/project1-image.jpg", caption="Project 1 Screenshot", use_column_width=True)
+    st.image("https://www.example.com/project1-image.jpg", caption="Project 1 Screenshot", use_container_width=True)
 
 elif project_selection == "Project 2":
     st.subheader("Project 2: Web Scraping Tool")
@@ -47,7 +47,7 @@ elif project_selection == "Project 2":
         **Description**: A web scraping tool for collecting data from multiple websites.  
         **Technologies Used**: BeautifulSoup, Pandas, Python.
     """)
-    st.image("https://www.example.com/project2-image.jpg", caption="Project 2 Screenshot", use_column_width=True)
+    st.image("https://www.example.com/project2-image.jpg", caption="Project 2 Screenshot", use_container_width=True)
 
 elif project_selection == "Project 3":
     st.subheader("Project 3: Business Metrics Dashboard")
@@ -55,7 +55,7 @@ elif project_selection == "Project 3":
         **Description**: A data visualization dashboard for tracking business metrics.  
         **Technologies Used**: Plotly, Dash, SQL.
     """)
-    st.image("https://www.example.com/project3-image.jpg", caption="Project 3 Screenshot", use_column_width=True)
+    st.image("https://www.example.com/project3-image.jpg", caption="Project 3 Screenshot", use_container_width=True)
 
 # Add a Contact section in two columns
 st.header("Contact Me")
