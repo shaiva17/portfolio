@@ -26,32 +26,36 @@ with col2:
     # Add an image (replace with your own image URL or path)
     st.image("https://www.example.com/your-image.jpg", caption="A cool image", use_column_width=True)
 
-# Add a Projects section with three columns
+# Create a radio button for navigating through projects
 st.header("My Projects")
+project_selection = st.radio(
+    "Choose a project to explore:",
+    ("Project 1", "Project 2", "Project 3")
+)
 
-# Creating three columns for the projects section
-project_col1, project_col2, project_col3 = st.columns(3)
-
-with project_col1:
-    st.subheader("Project 1")
+if project_selection == "Project 1":
+    st.subheader("Project 1: Task Management App")
     st.write("""
         **Description**: An innovative app that helps users manage tasks efficiently.  
         **Technologies Used**: Python, Streamlit, SQLite.
     """)
+    st.image("https://www.example.com/project1-image.jpg", caption="Project 1 Screenshot", use_column_width=True)
 
-with project_col2:
-    st.subheader("Project 2")
+elif project_selection == "Project 2":
+    st.subheader("Project 2: Web Scraping Tool")
     st.write("""
         **Description**: A web scraping tool for collecting data from multiple websites.  
         **Technologies Used**: BeautifulSoup, Pandas, Python.
     """)
+    st.image("https://www.example.com/project2-image.jpg", caption="Project 2 Screenshot", use_column_width=True)
 
-with project_col3:
-    st.subheader("Project 3")
+elif project_selection == "Project 3":
+    st.subheader("Project 3: Business Metrics Dashboard")
     st.write("""
         **Description**: A data visualization dashboard for tracking business metrics.  
         **Technologies Used**: Plotly, Dash, SQL.
     """)
+    st.image("https://www.example.com/project3-image.jpg", caption="Project 3 Screenshot", use_column_width=True)
 
 # Add a Contact section in two columns
 st.header("Contact Me")
@@ -61,8 +65,8 @@ with contact_col1:
     st.write("""
         Feel free to reach out to me via email or social media:
     """)
-    st.write("[Email me](mailto:your-email@example.com)")
-    st.write("[LinkedIn](https://www.linkedin.com/in/your-profile)")
+    st.write("[Email me](mailto:shreyas.kosale@gmail.com)")
+    st.write("[LinkedIn](https://www.linkedin.com/in/shreyas-kosale)")
 
 with contact_col2:
     st.write("""
@@ -72,8 +76,6 @@ with contact_col2:
 
 # Footer section with custom styling
 st.markdown("""
-    ---
-    Built with ❤️ using [Streamlit](https://streamlit.io)  
-    © [Your Name] 2024
+    ---  
+    © Shreyas Kosale 2024
 """)
-
