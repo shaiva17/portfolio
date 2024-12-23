@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Set the title of the webpage
-st.set_page_config(page_title="Product Portfolio - Shreyas", page_icon="🏠")
+st.set_page_config(page_title="Product Portfolio - Shreyas", page_icon="📒")
 
 # Create a header with image and personal details at the top
 header_col1, header_col2 = st.columns([1, 4])  # Adjust column widths as needed
@@ -25,7 +25,7 @@ with header_col2:
 # Add an introduction section
 st.write("""
     Hi there! I'm Shreyas Kosale. Welcome to my Product Portfolio.  
-    I'm passionate about building amazing products and leveraging the power of data. Explore below to know more about me and my work.
+    I'm passionate about building amazing products and leveraging the power of data.
 """)
 
 # Create two columns for layout (About Me and Image)
