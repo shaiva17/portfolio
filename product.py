@@ -1,14 +1,14 @@
 import streamlit as st
 
 # Set the title of the webpage
-st.set_page_config(page_title="Product Portfolio - Shreyas", page_icon="📒")
+st.set_page_config(page_title="Product Portfolio - Shreyas", page_icon="product-development.png")
 
 # Create a header with image and personal details at the top
 header_col1, header_col2 = st.columns([1, 4])  # Adjust column widths as needed
 
 with header_col1:
     # Add an image at the top left corner (adjust size if needed)
-    st.image("https://www.example.com/your-image.jpg", width=100, caption="Shreyas Kosale")
+    st.image("Photo.jpg", width=100, caption="Shreyas Kosale")
 
 with header_col2:
     # Add your name and details
