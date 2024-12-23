@@ -3,14 +3,33 @@ import streamlit as st
 # Set the title of the webpage
 st.set_page_config(page_title="Product Portfolio - Shreyas", page_icon="🏠")
 
-# Add a header and introduction
-st.title("Welcome to My Portfolio !")
+# Create a header with image and personal details at the top
+header_col1, header_col2 = st.columns([1, 4])  # Adjust column widths as needed
+
+with header_col1:
+    # Add an image at the top left corner (adjust size if needed)
+    st.image("https://www.example.com/your-image.jpg", width=100, caption="Shreyas Kosale")
+
+with header_col2:
+    # Add your name and details
+    st.markdown("""
+        # Shreyas Kosale
+        ## Product Enthusiast & Data Analytics Expert
+
+        Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.
+
+        **Email**: [your-email@example.com](mailto:your-email@example.com)  
+        **LinkedIn**: [Shreyas Kosale](https://www.linkedin.com/in/your-profile)  
+        **GitHub**: [Shreyas Kosale GitHub](https://github.com/your-profile)
+    """)
+
+# Add an introduction section
 st.write("""
     Hi there! I'm Shreyas Kosale. Welcome to my Product Portfolio.  
     I'm passionate about building amazing products and leveraging the power of data. Explore below to know more about me and my work.
 """)
 
-# Create two columns for layout
+# Create two columns for layout (About Me and Image)
 col1, col2 = st.columns(2)
 
 with col1:
@@ -24,7 +43,7 @@ with col1:
 
 with col2:
     # Add an image (replace with your own image URL or path)
-    st.image("https://www.example.com/your-image.jpg", caption="A cool image", use_container_width=True)
+    st.image("https://www.example.com/your-image.jpg", caption="A cool image", use_column_width=True)
 
 # Create a radio button for navigating through projects
 st.header("My Projects")
@@ -39,7 +58,7 @@ if project_selection == "Project 1":
         **Description**: An innovative app that helps users manage tasks efficiently.  
         **Technologies Used**: Python, Streamlit, SQLite.
     """)
-    st.image("https://www.example.com/project1-image.jpg", caption="Project 1 Screenshot", use_container_width=True)
+    st.image("https://www.example.com/project1-image.jpg", caption="Project 1 Screenshot", use_column_width=True)
 
 elif project_selection == "Project 2":
     st.subheader("Project 2: Web Scraping Tool")
@@ -47,7 +66,7 @@ elif project_selection == "Project 2":
         **Description**: A web scraping tool for collecting data from multiple websites.  
         **Technologies Used**: BeautifulSoup, Pandas, Python.
     """)
-    st.image("https://www.example.com/project2-image.jpg", caption="Project 2 Screenshot", use_container_width=True)
+    st.image("https://www.example.com/project2-image.jpg", caption="Project 2 Screenshot", use_column_width=True)
 
 elif project_selection == "Project 3":
     st.subheader("Project 3: Business Metrics Dashboard")
@@ -55,7 +74,7 @@ elif project_selection == "Project 3":
         **Description**: A data visualization dashboard for tracking business metrics.  
         **Technologies Used**: Plotly, Dash, SQL.
     """)
-    st.image("https://www.example.com/project3-image.jpg", caption="Project 3 Screenshot", use_container_width=True)
+    st.image("https://www.example.com/project3-image.jpg", caption="Project 3 Screenshot", use_column_width=True)
 
 # Add a Contact section in two columns
 st.header("Contact Me")
@@ -65,8 +84,8 @@ with contact_col1:
     st.write("""
         Feel free to reach out to me via email or social media:
     """)
-    st.write("[Email me](mailto:shreyas.kosale@gmail.com)")
-    st.write("[LinkedIn](https://www.linkedin.com/in/shreyas-kosale)")
+    st.write("[Email me](mailto:your-email@example.com)")
+    st.write("[LinkedIn](https://www.linkedin.com/in/your-profile)")
 
 with contact_col2:
     st.write("""
@@ -76,6 +95,7 @@ with contact_col2:
 
 # Footer section with custom styling
 st.markdown("""
-    ---  
+    ---
+    Built with ❤️ using [Streamlit](https://streamlit.io)  
     © Shreyas Kosale 2024
 """)
