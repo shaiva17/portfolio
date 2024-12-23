@@ -48,8 +48,7 @@ with col2:
 st.header("My Projects")
 project_selection = st.radio(
     "Choose a project to explore:",
-    ("Project 1", "Project 2", "Project 3")
-)
+    ("Project 1", "Project 2", "Project 3"), horizontal = True)
 
 if project_selection == "Project 1":
     st.subheader("Project 1: Task Management App")
