@@ -18,7 +18,7 @@ with header_col2:
 
         Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.
 
-        **Email**: [your-email@example.com](mailto:shreyas.kosale@gmail.com)  
+        **Email**: [shreyas.kosale@gmail.com](mailto:shreyas.kosale@gmail.com)  
         **LinkedIn**: [Shreyas Kosale](https://www.linkedin.com/in/shreyas-kosale)  
     """)
 
