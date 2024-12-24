@@ -13,7 +13,7 @@ st.set_page_config(page_title="Product Portfolio - Shreyas", page_icon="product-
 DATA_FILENAME = Path(__file__).parent / 'data/base.csv'
 df = pd.read_csv(DATA_FILENAME)
 # Convert 'order-date' to datetime format (in case it's not already in datetime format)
-df['order-date'] = pd.to_datetime(df['order-date'], format='%Y-%m-%d', errors='coerce')
+#df['order-date'] = pd.to_datetime(df['order-date'], format='%Y-%m-%d', errors='coerce')
 #df['order-date'] = df['order-date'].dt.date  # This will convert to just the date part
 
 df['revenue'] = pd.to_numeric(df['revenue'],errors='coerce')
@@ -74,40 +74,40 @@ if project_selection == "Business Analysis":
         **Technologies Used**: Python, Streamlit.
     """)
 
-    # # Sidebar filters
-    # st.subheader("Select Date Range")
-    # start_date = st.date_input("Start Date", df['order-date'].min())
-    # end_date = st.date_input("End Date", df['order-date'].max())
+    # Sidebar filters
+    st.subheader("Select Date Range")
+    start_date = st.date_input("Start Date", df['order-date'].min())
+    end_date = st.date_input("End Date", df['order-date'].max())
 
-    # # Add filters for category, customer zone, and platform
-    # category_filter = st.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
-    # zone_filter = st.multiselect('Select Customer Zone', ['All'] + list(df['cust-zone'].unique()), default=['All'])
-    # platform_filter = st.multiselect('Select Platform', ['All'] + list(df['platform'].unique()), default=['All'])
+    # Add filters for category, customer zone, and platform
+    category_filter = st.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
+    zone_filter = st.multiselect('Select Customer Zone', ['All'] + list(df['cust-zone'].unique()), default=['All'])
+    platform_filter = st.multiselect('Select Platform', ['All'] + list(df['platform'].unique()), default=['All'])
 
-    # # Apply filters to the DataFrame
+    # Apply filters to the DataFrame
     filtered_df = df.copy()
 
-    # # Filter by Category
-    # if 'All' in category_filter:
-    #     filtered_df = filtered_df
-    # else:
-    #     filtered_df = filtered_df[filtered_df['category'].isin(category_filter)]
+    # Filter by Category
+    if 'All' in category_filter:
+        filtered_df = filtered_df
+    else:
+        filtered_df = filtered_df[filtered_df['category'].isin(category_filter)]
 
-    # # Filter by Customer Zone
-    # if 'All' in zone_filter:
-    #     filtered_df = filtered_df
-    # else:
-    #     filtered_df = filtered_df[filtered_df['cust-zone'].isin(zone_filter)]
+    # Filter by Customer Zone
+    if 'All' in zone_filter:
+        filtered_df = filtered_df
+    else:
+        filtered_df = filtered_df[filtered_df['cust-zone'].isin(zone_filter)]
 
-    # # Filter by Platform
-    # if 'All' in platform_filter:
-    #     filtered_df = filtered_df
-    # else:
-    #     filtered_df = filtered_df[filtered_df['platform'].isin(platform_filter)]
+    # Filter by Platform
+    if 'All' in platform_filter:
+        filtered_df = filtered_df
+    else:
+        filtered_df = filtered_df[filtered_df['platform'].isin(platform_filter)]
 
-    # # Filter by Date Range
-    # filtered_df = filtered_df[(filtered_df['order-date'] >= pd.to_datetime(start_date)) &
-    #                           (filtered_df['order-date'] <= pd.to_datetime(end_date))]
+    # Filter by Date Range
+    filtered_df = filtered_df[(filtered_df['order-date'] >= pd.to_datetime(start_date)) &
+                              (filtered_df['order-date'] <= pd.to_datetime(end_date))]
 
     st.subheader(f"KPI's")
     # st.write(f'Selected Data: Category - {category_filter}, Zone - {zone_filter}, Platform - {platform_filter}')
