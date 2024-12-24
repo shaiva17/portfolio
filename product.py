@@ -65,7 +65,7 @@ with col2:
 st.header("My Projects")
 project_selection = st.radio(
     "Choose a project to explore:",
-    ("Business Analysis", "Product Analysis 1", "Product Analysis 2"), horizontal = True)
+    ("Business Analysis", "Product Analysis"), horizontal = True)
 
 if project_selection == "Business Analysis":
     st.subheader("Project 1: Business Dashboard")
@@ -282,8 +282,29 @@ if project_selection == "Business Analysis":
 
 
 
-elif project_selection == "Product Analysis 1":
-    
+elif project_selection == "Product Analysis":
+
+    # Load logo image
+    logo_path = "inshorts.png"  # Replace this with the actual path to your logo image file
+
+    # Set header with logo and title using markdown
+    st.markdown("""
+        <style>
+            .title-container {
+                display: flex;
+                align-items: center;
+            }
+            .title-container img {
+                height: 50px;  /* Adjust size as needed */
+                margin-right: 10px;
+            }
+        </style>
+        <div class="title-container">
+            <img src="{}" alt="Inshorts Logo">
+            <h1>Inshorts</h1>
+        </div>
+    """.format(logo_path), unsafe_allow_html=True)
+
     st.write("""
         This is a product design for the Inshorts app. In this design I have explored potential improvements to the app with the following new features:
         - **Offline Mode**
@@ -361,25 +382,11 @@ elif project_selection == "Product Analysis 1":
     """)
 
     # Conclusion
-    st.header("Conclusion")
     st.write("""
         These new features aim to significantly improve the Inshorts app by making it more user-friendly and engaging. Whether it's downloading news for offline reading, allowing users to contribute and discuss news, or making search more intuitive, these enhancements will increase both user satisfaction and app usage.
     """)
 
 
-
-    
-
-
-elif project_selection == "Project 3":
-    st.subheader("Project 3: Business Metrics Dashboard")
-    st.write("""
-        **Description**: A data visualization dashboard for tracking business metrics.  
-        **Technologies Used**: Plotly, Dash, SQL.
-    """)
-    st.image("https://www.example.com/project3-image.jpg", caption="Project 3 Screenshot", use_container_width=True)
-
-# Add a Contact section in two columns
 st.header("Contact Me")
 contact_col1, contact_col2 = st.columns(2)
 
