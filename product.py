@@ -76,14 +76,14 @@ if project_selection == "Business Analysis":
     """)
 
     # Sidebar filters
-    st.sidebar.subheader("Select Date Range")
-    start_date = st.sidebar.date_input("Start Date", df['order-date'].min())
-    end_date = st.sidebar.date_input("End Date", df['order-date'].max())
+    st.subheader("Select Date Range")
+    start_date = st.date_input("Start Date", df['order-date'].min())
+    end_date = st.date_input("End Date", df['order-date'].max())
 
     # Add filters for category, customer zone, and platform
-    category_filter = st.sidebar.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
-    zone_filter = st.sidebar.multiselect('Select Customer Zone', ['All'] + list(df['cust-zone'].unique()), default=['All'])
-    platform_filter = st.sidebar.multiselect('Select Platform', ['All'] + list(df['platform'].unique()), default=['All'])
+    category_filter = st.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
+    zone_filter = st.multiselect('Select Customer Zone', ['All'] + list(df['cust-zone'].unique()), default=['All'])
+    platform_filter = st.multiselect('Select Platform', ['All'] + list(df['platform'].unique()), default=['All'])
 
     # Apply filters to the DataFrame
     filtered_df = df.copy()
