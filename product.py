@@ -294,7 +294,7 @@ elif project_selection == "Product Analysis":
                 align-items: center;
             }}
             .title-container img {{
-                height: 50px;  /* Adjust size as needed */
+                height: 25px;  /* Adjust size as needed */
                 margin-right: 10px;
             }}
         </style>
