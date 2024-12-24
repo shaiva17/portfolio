@@ -32,16 +32,16 @@ with header_col2:
     st.markdown("""
         # Shreyas Kosale
         ## Product Enthusiast & Data Analytics Expert
+        ### shreyas.kosale@gmail.com | 9699644328
 
         Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.
 
-        **Email**: [shreyas.kosale@gmail.com](mailto:shreyas.kosale@gmail.com)  
-        **LinkedIn**: [Shreyas Kosale](https://www.linkedin.com/in/shreyas-kosale)  
+
     """)
 
 # Add an introduction section
 st.write("""
-    Hi there! I'm Shreyas Kosale. Welcome to my Product Portfolio.  
+    Hi there! I'm Shreyas Kosale. Welcome to my Data & Product Portfolio.  
     I'm passionate about building amazing products and leveraging the power of data.
 """)
 
@@ -52,10 +52,10 @@ with col1:
     # Add an "About Me" section
     st.header("About Me")
     st.write("""
-        I'm a product enthusiast with a strong background in data analytics.  
-        I enjoy creating innovative solutions that solve real-world problems.  
-        I’ve worked on several exciting projects, leveraging data-driven insights to shape product strategies.
-    """)
+        I'm a product enthusiast with a background in business analytics.  
+        I enjoy creating innovative solutions that solve real-world problems.
+        Qualifications : Masters in Big Data Analytics - 2023
+        """)
 
 with col2:
     # Add an image (replace with your own image URL or path)
@@ -69,216 +69,216 @@ project_selection = st.radio(
 
 if project_selection == "Business Analysis":
     st.subheader("Project 1: Business Dashboard")
-    # st.write("""
-    #     **Description**: An interative dashboard built using streamlit.  
-    #     **Technologies Used**: Python, Streamlit.
-    # """)
+    st.write("""
+        **Description**: An interative dashboard built using streamlit.  
+        **Technologies Used**: Python, Streamlit.
+    """)
 
-    # # Sidebar filters
-    # st.subheader("Select Date Range")
-    # start_date = st.date_input("Start Date", df['order-date'].min())
-    # end_date = st.date_input("End Date", df['order-date'].max())
+    # Sidebar filters
+    st.subheader("Select Date Range")
+    start_date = st.date_input("Start Date", df['order-date'].min())
+    end_date = st.date_input("End Date", df['order-date'].max())
 
-    # # Add filters for category, customer zone, and platform
-    # category_filter = st.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
-    # zone_filter = st.multiselect('Select Customer Zone', ['All'] + list(df['cust-zone'].unique()), default=['All'])
-    # platform_filter = st.multiselect('Select Platform', ['All'] + list(df['platform'].unique()), default=['All'])
+    # Add filters for category, customer zone, and platform
+    category_filter = st.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
+    zone_filter = st.multiselect('Select Customer Zone', ['All'] + list(df['cust-zone'].unique()), default=['All'])
+    platform_filter = st.multiselect('Select Platform', ['All'] + list(df['platform'].unique()), default=['All'])
 
-    # # Apply filters to the DataFrame
-    # filtered_df = df.copy()
+    # Apply filters to the DataFrame
+    filtered_df = df.copy()
 
-    # # Filter by Category
+    # Filter by Category
+    if 'All' in category_filter:
+        filtered_df = filtered_df
+    else:
+        filtered_df = filtered_df[filtered_df['category'].isin(category_filter)]
+
+    # Filter by Customer Zone
+    if 'All' in zone_filter:
+        filtered_df = filtered_df
+    else:
+        filtered_df = filtered_df[filtered_df['cust-zone'].isin(zone_filter)]
+
+    # Filter by Platform
+    if 'All' in platform_filter:
+        filtered_df = filtered_df
+    else:
+        filtered_df = filtered_df[filtered_df['platform'].isin(platform_filter)]
+
+    # Filter by Date Range
+    filtered_df = filtered_df[(filtered_df['order-date'] >= pd.to_datetime(start_date)) &
+                              (filtered_df['order-date'] <= pd.to_datetime(end_date))]
+
+    st.subheader(f"KPI's")
+    # st.write(f'Selected Data: Category - {category_filter}, Zone - {zone_filter}, Platform - {platform_filter}')
+
+    # --- Display Total Revenue and Units (Card Style) ---
+    total_revenue = filtered_df['revenue'].sum()
+    tr = total_revenue / 100000
+    total_units = filtered_df['qty'].sum()
+    asp = round(total_revenue / total_units if total_units > 0 else 0)
+    distinct_order_dates = filtered_df['order-date'].nunique()
+    distinct_orders = filtered_df['order-no'].nunique()
+    drr_gmv = tr / distinct_order_dates if distinct_order_dates > 0 else 0
+    drr_units = total_units / distinct_order_dates if distinct_order_dates > 0 else 0
+    aov = total_revenue / distinct_orders if distinct_orders > 0 else 0
+
+    # Calculating data for trend
+    min_order_date = filtered_df['order-date'].min()
+    first_day_current_month = min_order_date.replace(day=1)
+    last_day_last_month = first_day_current_month - timedelta(days=1)
+    first_day_last_month = last_day_last_month.replace(day=1)
+
+    fdf = df.copy()
+
     # if 'All' in category_filter:
-    #     filtered_df = filtered_df
+    #     fdf = fdf
     # else:
-    #     filtered_df = filtered_df[filtered_df['category'].isin(category_filter)]
+    #     fdf = fdf[fdf['category'].isin(category_filter)]
 
     # # Filter by Customer Zone
     # if 'All' in zone_filter:
-    #     filtered_df = filtered_df
+    #     fdf = fdf
     # else:
-    #     filtered_df = filtered_df[filtered_df['cust-zone'].isin(zone_filter)]
+    #     fdf = fdf[fdf['cust-zone'].isin(zone_filter)]
 
     # # Filter by Platform
     # if 'All' in platform_filter:
-    #     filtered_df = filtered_df
+    #     fdf = fdf
     # else:
-    #     filtered_df = filtered_df[filtered_df['platform'].isin(platform_filter)]
+    #     fdf = fdf[fdf['platform'].isin(platform_filter)]
 
-    # # Filter by Date Range
-    # filtered_df = filtered_df[(filtered_df['order-date'] >= pd.to_datetime(start_date)) &
-    #                           (filtered_df['order-date'] <= pd.to_datetime(end_date))]
+    # Display cards with KPI values
+    col1, col2, col3 = st.columns(3)
 
-    # st.subheader(f"KPI's")
-    # # st.write(f'Selected Data: Category - {category_filter}, Zone - {zone_filter}, Platform - {platform_filter}')
+    # Card 1 (GMV)
+    with col1:
+        st.markdown(f"""
+            <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="text-align: center; font-size: 18px;"> Sales: ₹{tr:,.1f} Lakhs</h3>
+            </div>
+        """, unsafe_allow_html=True)
 
-    # # --- Display Total Revenue and Units (Card Style) ---
-    # total_revenue = filtered_df['revenue'].sum()
-    # tr = total_revenue / 100000
-    # total_units = filtered_df['qty'].sum()
-    # asp = round(total_revenue / total_units if total_units > 0 else 0)
-    # distinct_order_dates = filtered_df['order-date'].nunique()
-    # distinct_orders = filtered_df['order-no'].nunique()
-    # drr_gmv = tr / distinct_order_dates if distinct_order_dates > 0 else 0
-    # drr_units = total_units / distinct_order_dates if distinct_order_dates > 0 else 0
-    # aov = total_revenue / distinct_orders if distinct_orders > 0 else 0
+    # Card 2 (Units)
+    with col2:
+        st.markdown(f"""
+            <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="text-align: center; font-size: 18px;">Units: {total_units:,.0f}</h3>
+            </div>
+        """, unsafe_allow_html=True)
 
-    # # Calculating data for trend
-    # min_order_date = filtered_df['order-date'].min()
-    # first_day_current_month = min_order_date.replace(day=1)
-    # last_day_last_month = first_day_current_month - timedelta(days=1)
-    # first_day_last_month = last_day_last_month.replace(day=1)
+    # Card 3 (ASP)
+    with col3:
+        st.markdown(f"""
+            <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="text-align: center; font-size: 18px;">ASP: ₹{asp:,}</h3>
+            </div>
+        """, unsafe_allow_html=True)
 
-    # fdf = df.copy()
+    # Add space between rows
+    st.write("")  # Line break
 
-    # # if 'All' in category_filter:
-    # #     fdf = fdf
-    # # else:
-    # #     fdf = fdf[fdf['category'].isin(category_filter)]
+    # Create 3 more columns for the next row of cards
+    col4, col5, col6 = st.columns(3)
 
-    # # # Filter by Customer Zone
-    # # if 'All' in zone_filter:
-    # #     fdf = fdf
-    # # else:
-    # #     fdf = fdf[fdf['cust-zone'].isin(zone_filter)]
+    # Card 4 (DRR GMV)
+    with col4:
+        if rt >= 0:
+            arrow = "&#x2191;"  # Up arrow (↑)
+            arrow_color = "green"
+        else:
+            arrow = "&#x2193;"  # Down arrow (↓)
+            arrow_color = "red"
 
-    # # # Filter by Platform
-    # # if 'All' in platform_filter:
-    # #     fdf = fdf
-    # # else:
-    # #     fdf = fdf[fdf['platform'].isin(platform_filter)]
+        st.markdown(f"""
+            <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="text-align: center; font-size: 18px;">
+                    DRR (Sales) : ₹{drr_gmv:,.1f} Lakhs<br>
+                    <span style="font-size: 16px; color: {arrow_color};">
+                        {arrow} {abs(rt):.2f}%
+                    </span>
+                </h3>  
+            </div>
+        """, unsafe_allow_html=True)
 
-    # # Display cards with KPI values
-    # col1, col2, col3 = st.columns(3)
+    # Card 5 (DRR Units)
+    with col5:
+        if ut >= 0:
+            arrow = "&#x2191;"  # Up arrow (↑)
+            arrow_color = "green"
+        else:
+            arrow = "&#x2193;"  # Down arrow (↓)
+            arrow_color = "red"
 
-    # # Card 1 (GMV)
-    # with col1:
-    #     st.markdown(f"""
-    #         <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-    #             <h3 style="text-align: center; font-size: 18px;"> Sales: ₹{tr:,.1f} Lakhs</h3>
-    #         </div>
-    #     """, unsafe_allow_html=True)
+        st.markdown(f"""
+            <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="text-align: center; font-size: 18px;">
+                    DRR (Units) : {drr_units:,.0f}<br>
+                    <span style="font-size: 16px; color: {arrow_color};">
+                        {arrow} {abs(ut):.2f}%
+                    </span>
+                </h3>  
+            </div>
+        """, unsafe_allow_html=True)
 
-    # # Card 2 (Units)
-    # with col2:
-    #     st.markdown(f"""
-    #         <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-    #             <h3 style="text-align: center; font-size: 18px;">Units: {total_units:,.0f}</h3>
-    #         </div>
-    #     """, unsafe_allow_html=True)
+    # Card 6 (AOV)
+    with col6:
+        if aovt >= 0:
+            arrow = "&#x2191;"  # Up arrow (↑)
+            arrow_color = "green"
+        else:
+            arrow = "&#x2193;"  # Down arrow (↓)
+            arrow_color = "red"
 
-    # # Card 3 (ASP)
-    # with col3:
-    #     st.markdown(f"""
-    #         <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-    #             <h3 style="text-align: center; font-size: 18px;">ASP: ₹{asp:,}</h3>
-    #         </div>
-    #     """, unsafe_allow_html=True)
+        st.markdown(f"""
+            <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="text-align: center; font-size: 18px;">
+                    AOV : ₹{aov:,.0f}<br>
+                    <span style="font-size: 16px; color: {arrow_color};">
+                        {arrow} {abs(aovt):.2f}%
+                    </span>
+                </h3>  
+            </div>
+        """, unsafe_allow_html=True)
 
-    # # Add space between rows
-    # st.write("")  # Line break
+    # Display Revenue Over Time chart
+    st.subheader('Revenue Over Time')
+    time_revenue = filtered_df.groupby('order-date')['revenue'].sum().reset_index()
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(time_revenue['order-date'], time_revenue['revenue'], marker='o', color='green')
+    ax.set_title('Revenue Over Time')
+    ax.set_xlabel('Order Date')
+    ax.set_ylabel('Revenue')
+    plt.xticks(rotation=45)
+    st.pyplot(fig)
 
-    # # Create 3 more columns for the next row of cards
-    # col4, col5, col6 = st.columns(3)
+    # --- Revenue Split by Category (Pie Chart) ---
+    category_revenue_pie = filtered_df.groupby('category')['revenue'].sum().reset_index()
+    fig = px.pie(category_revenue_pie, names='category', values='revenue', title='Revenue Split by Category')
+    st.plotly_chart(fig)
 
-    # # Card 4 (DRR GMV)
-    # with col4:
-    #     if rt >= 0:
-    #         arrow = "&#x2191;"  # Up arrow (↑)
-    #         arrow_color = "green"
-    #     else:
-    #         arrow = "&#x2193;"  # Down arrow (↓)
-    #         arrow_color = "red"
+    # --- India Map ---
+    shapefile_path = Path(__file__).parent / 'shapefile/india-states.shp'
+    gdf = gpd.read_file(shapefile_path)
+    gdf["STATE_NAME"] = gdf["ST_NM"].str.lower()
+    filtered_df["state"] = filtered_df["state"].str.lower()
+    test = filtered_df.groupby('state')['revenue'].sum().reset_index()
+    test['revenue'] = test['revenue'] / 100000
+    gdf = gdf.merge(test, left_on="STATE_NAME", right_on="state", how="left")
+    gdf['revenue'] = gdf['revenue'].fillna(0)
+    gdf.loc[gdf['STATE_NAME'] == 'dadra and nagar haveli and daman and diu', 'STATE_NAME'] = 'daman'
 
-    #     st.markdown(f"""
-    #         <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-    #             <h3 style="text-align: center; font-size: 18px;">
-    #                 DRR (Sales) : ₹{drr_gmv:,.1f} Lakhs<br>
-    #                 <span style="font-size: 16px; color: {arrow_color};">
-    #                     {arrow} {abs(rt):.2f}%
-    #                 </span>
-    #             </h3>  
-    #         </div>
-    #     """, unsafe_allow_html=True)
+    # Plot map
+    fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+    gdf.plot(column='revenue', cmap='OrRd', linewidth=0.8, ax=ax, edgecolor='0.8', legend=True)
 
-    # # Card 5 (DRR Units)
-    # with col5:
-    #     if ut >= 0:
-    #         arrow = "&#x2191;"  # Up arrow (↑)
-    #         arrow_color = "green"
-    #     else:
-    #         arrow = "&#x2193;"  # Down arrow (↓)
-    #         arrow_color = "red"
+    for idx, row in gdf.iterrows():
+        centroid = row['geometry'].centroid
+        ax.annotate(text=row['STATE_NAME'], xy=(centroid.x, centroid.y), color='black', fontsize=6, ha='center')
 
-    #     st.markdown(f"""
-    #         <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-    #             <h3 style="text-align: center; font-size: 18px;">
-    #                 DRR (Units) : {drr_units:,.0f}<br>
-    #                 <span style="font-size: 16px; color: {arrow_color};">
-    #                     {arrow} {abs(ut):.2f}%
-    #                 </span>
-    #             </h3>  
-    #         </div>
-    #     """, unsafe_allow_html=True)
-
-    # # Card 6 (AOV)
-    # with col6:
-    #     if aovt >= 0:
-    #         arrow = "&#x2191;"  # Up arrow (↑)
-    #         arrow_color = "green"
-    #     else:
-    #         arrow = "&#x2193;"  # Down arrow (↓)
-    #         arrow_color = "red"
-
-    #     st.markdown(f"""
-    #         <div style="padding: 15px; background-color: #f1f1f1; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-    #             <h3 style="text-align: center; font-size: 18px;">
-    #                 AOV : ₹{aov:,.0f}<br>
-    #                 <span style="font-size: 16px; color: {arrow_color};">
-    #                     {arrow} {abs(aovt):.2f}%
-    #                 </span>
-    #             </h3>  
-    #         </div>
-    #     """, unsafe_allow_html=True)
-
-    # # Display Revenue Over Time chart
-    # st.subheader('Revenue Over Time')
-    # time_revenue = filtered_df.groupby('order-date')['revenue'].sum().reset_index()
-    # fig, ax = plt.subplots(figsize=(10, 6))
-    # ax.plot(time_revenue['order-date'], time_revenue['revenue'], marker='o', color='green')
-    # ax.set_title('Revenue Over Time')
-    # ax.set_xlabel('Order Date')
-    # ax.set_ylabel('Revenue')
-    # plt.xticks(rotation=45)
-    # st.pyplot(fig)
-
-    # # --- Revenue Split by Category (Pie Chart) ---
-    # category_revenue_pie = filtered_df.groupby('category')['revenue'].sum().reset_index()
-    # fig = px.pie(category_revenue_pie, names='category', values='revenue', title='Revenue Split by Category')
-    # st.plotly_chart(fig)
-
-    # # --- India Map ---
-    # shapefile_path = Path(__file__).parent / 'shapefile/india-states.shp'
-    # gdf = gpd.read_file(shapefile_path)
-    # gdf["STATE_NAME"] = gdf["ST_NM"].str.lower()
-    # filtered_df["state"] = filtered_df["state"].str.lower()
-    # test = filtered_df.groupby('state')['revenue'].sum().reset_index()
-    # test['revenue'] = test['revenue'] / 100000
-    # gdf = gdf.merge(test, left_on="STATE_NAME", right_on="state", how="left")
-    # gdf['revenue'] = gdf['revenue'].fillna(0)
-    # gdf.loc[gdf['STATE_NAME'] == 'dadra and nagar haveli and daman and diu', 'STATE_NAME'] = 'daman'
-
-    # # Plot map
-    # fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-    # gdf.plot(column='revenue', cmap='OrRd', linewidth=0.8, ax=ax, edgecolor='0.8', legend=True)
-
-    # for idx, row in gdf.iterrows():
-    #     centroid = row['geometry'].centroid
-    #     ax.annotate(text=row['STATE_NAME'], xy=(centroid.x, centroid.y), color='black', fontsize=6, ha='center')
-
-    # ax.set_title("Revenue by State", fontsize=15)
-    # ax.axis('off')
-    # st.pyplot(fig)
+    ax.set_title("Revenue by State", fontsize=15)
+    ax.axis('off')
+    st.pyplot(fig)
 
 
 elif project_selection == "Product Analysis":
