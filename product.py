@@ -37,10 +37,6 @@ with header_col2:
     st.write("Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.")
 
 # Add an introduction section
-st.write("""
-    Hi there! I'm Shreyas Kosale. Welcome to my Data & Product Portfolio.  
-    I'm passionate about building amazing products and leveraging the power of data.
-""")
 
 # Create two columns for layout (About Me and Image)
 col1, col2 = st.columns(2)
@@ -48,6 +44,9 @@ col1, col2 = st.columns(2)
 with col1:
     # Add an "About Me" section
     st.header("About Me")
+    st.write("""
+    Hi there! I'm Shreyas Kosale. Welcome to my Data & Product Portfolio.  
+    I'm passionate about building amazing products and leveraging the power of data.""")
     st.write("""
         I'm a product enthusiast with a background in business analytics.  
         I enjoy creating innovative solutions that solve real-world problems.
