@@ -374,16 +374,16 @@ contact_col1, contact_col2 = st.columns(2)
 
 with contact_col1:
     st.write("""
-        Feel free to reach out to me via email or phone:
+        Feel free to reach out to me via :
     """)
-    st.write("[Email me](mailto:shreyas.kosale@gmail.com)")
+    st.write("[Email](mailto:shreyas.kosale@gmail.com)")
     phone_number = "9699644328"
-    st.markdown(f"### Call : [📞 {phone_number}](tel:{phone_number})")
+    st.write([Call](tel:{phone_number})")
     st.write("[LinkedIn](https://www.linkedin.com/in/shreyas-kosale)")
 
 with contact_col2:
     st.write("""
-        My LinkedIn profile :
+        You can also check out my LinkedIn profile :
     """)
     st.write("[LinkedIn](https://www.linkedin.com/in/shreyas-kosale)")
 
