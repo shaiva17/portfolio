@@ -284,7 +284,7 @@ if project_selection == "Business Analysis":
 elif project_selection == "Product Analysis":
     
     st.header(""" This is a product design for :""")
-    st.image("Inshorts.png", use_container_width=True, width = 50)
+    st.image("Inshorts.png", width = 50)
 
 
     st.write("""
