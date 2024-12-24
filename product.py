@@ -74,43 +74,43 @@ if project_selection == "Business Analysis":
         **Technologies Used**: Python, Streamlit.
     """)
 
-    # Sidebar filters
-    st.subheader("Select Date Range")
-    start_date = st.date_input("Start Date", df['order-date'].min())
-    end_date = st.date_input("End Date", df['order-date'].max())
+    # # Sidebar filters
+    # st.subheader("Select Date Range")
+    # start_date = st.date_input("Start Date", df['order-date'].min())
+    # end_date = st.date_input("End Date", df['order-date'].max())
 
-    # Add filters for category, customer zone, and platform
-    category_filter = st.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
-    zone_filter = st.multiselect('Select Customer Zone', ['All'] + list(df['cust-zone'].unique()), default=['All'])
-    platform_filter = st.multiselect('Select Platform', ['All'] + list(df['platform'].unique()), default=['All'])
+    # # Add filters for category, customer zone, and platform
+    # category_filter = st.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
+    # zone_filter = st.multiselect('Select Customer Zone', ['All'] + list(df['cust-zone'].unique()), default=['All'])
+    # platform_filter = st.multiselect('Select Platform', ['All'] + list(df['platform'].unique()), default=['All'])
 
-    # Apply filters to the DataFrame
+    # # Apply filters to the DataFrame
     filtered_df = df.copy()
 
-    # Filter by Category
-    if 'All' in category_filter:
-        filtered_df = filtered_df
-    else:
-        filtered_df = filtered_df[filtered_df['category'].isin(category_filter)]
+    # # Filter by Category
+    # if 'All' in category_filter:
+    #     filtered_df = filtered_df
+    # else:
+    #     filtered_df = filtered_df[filtered_df['category'].isin(category_filter)]
 
-    # Filter by Customer Zone
-    if 'All' in zone_filter:
-        filtered_df = filtered_df
-    else:
-        filtered_df = filtered_df[filtered_df['cust-zone'].isin(zone_filter)]
+    # # Filter by Customer Zone
+    # if 'All' in zone_filter:
+    #     filtered_df = filtered_df
+    # else:
+    #     filtered_df = filtered_df[filtered_df['cust-zone'].isin(zone_filter)]
 
-    # Filter by Platform
-    if 'All' in platform_filter:
-        filtered_df = filtered_df
-    else:
-        filtered_df = filtered_df[filtered_df['platform'].isin(platform_filter)]
+    # # Filter by Platform
+    # if 'All' in platform_filter:
+    #     filtered_df = filtered_df
+    # else:
+    #     filtered_df = filtered_df[filtered_df['platform'].isin(platform_filter)]
 
-    # Filter by Date Range
-    filtered_df = filtered_df[(filtered_df['order-date'] >= pd.to_datetime(start_date)) &
-                              (filtered_df['order-date'] <= pd.to_datetime(end_date))]
+    # # Filter by Date Range
+    # filtered_df = filtered_df[(filtered_df['order-date'] >= pd.to_datetime(start_date)) &
+    #                           (filtered_df['order-date'] <= pd.to_datetime(end_date))]
 
     st.subheader(f"KPI's")
-    st.write(f'Selected Data: Category - {category_filter}, Zone - {zone_filter}, Platform - {platform_filter}')
+    # st.write(f'Selected Data: Category - {category_filter}, Zone - {zone_filter}, Platform - {platform_filter}')
 
     # --- Display Total Revenue and Units (Card Style) ---
     total_revenue = filtered_df['revenue'].sum()
@@ -131,22 +131,22 @@ if project_selection == "Business Analysis":
 
     fdf = df.copy()
 
-    if 'All' in category_filter:
-        fdf = fdf
-    else:
-        fdf = fdf[fdf['category'].isin(category_filter)]
+    # if 'All' in category_filter:
+    #     fdf = fdf
+    # else:
+    #     fdf = fdf[fdf['category'].isin(category_filter)]
 
-    # Filter by Customer Zone
-    if 'All' in zone_filter:
-        fdf = fdf
-    else:
-        fdf = fdf[fdf['cust-zone'].isin(zone_filter)]
+    # # Filter by Customer Zone
+    # if 'All' in zone_filter:
+    #     fdf = fdf
+    # else:
+    #     fdf = fdf[fdf['cust-zone'].isin(zone_filter)]
 
-    # Filter by Platform
-    if 'All' in platform_filter:
-        fdf = fdf
-    else:
-        fdf = fdf[fdf['platform'].isin(platform_filter)]
+    # # Filter by Platform
+    # if 'All' in platform_filter:
+    #     fdf = fdf
+    # else:
+    #     fdf = fdf[fdf['platform'].isin(platform_filter)]
 
     # Display cards with KPI values
     col1, col2, col3 = st.columns(3)
