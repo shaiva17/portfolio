@@ -1,5 +1,5 @@
 import streamlit as st
-from pathlib import Pat
+from pathlib import Path
 
 # Set the title of the webpage
 st.set_page_config(page_title="Product Portfolio - Shreyas", page_icon="product-development.png")
