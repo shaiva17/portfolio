@@ -68,7 +68,7 @@ project_selection = st.radio(
     ("Business Analysis", "Product Analysis"), horizontal = True)
 
 if project_selection == "Business Analysis":
-    # st.subheader("Project 1: Business Dashboard")
+    st.subheader("Project 1: Business Dashboard")
     # st.write("""
     #     **Description**: An interative dashboard built using streamlit.  
     #     **Technologies Used**: Python, Streamlit.
