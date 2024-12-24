@@ -32,12 +32,9 @@ with header_col2:
     st.markdown("""
         # Shreyas Kosale
         ## Product Enthusiast & Data Analytics Expert
-        ### shreyas.kosale@gmail.com | 9699644328
-
-        Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.
-
-
     """)
+    st.write("shreyas.kosale@gmail.com | 9699644328")
+    st.write("Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.")
 
 # Add an introduction section
 st.write("""
@@ -59,7 +56,7 @@ with col1:
 
 with col2:
     # Add an image (replace with your own image URL or path)
-    st.image("manager.png", use_container_width=True)
+    st.image("manager.png", width=250)
 
 # Create a radio button for navigating through projects
 st.header("My Projects")
