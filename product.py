@@ -287,13 +287,105 @@ if project_selection == "Business Analysis":
 
 
     
-elif project_selection == "Project 2":
-    st.subheader("Project 2: Web Scraping Tool")
+elif project_selection == "Product Analysis 1":
+    import streamlit as st
+
+    # Set the title and page config
+    st.set_page_config(page_title="Inshorts - Product Design", page_icon="📱")
+
+    # Add a header and introduction
+    st.title("Inshorts App - Product Design")
     st.write("""
-        **Description**: A web scraping tool for collecting data from multiple websites.  
-        **Technologies Used**: BeautifulSoup, Pandas, Python.
+        Welcome to the product design for the Inshorts app with new features:
+        - **Offline Mode**
+        - **Community Engagement**
+        - **Improved Search**
     """)
-    st.image("https://www.example.com/project2-image.jpg", caption="Project 2 Screenshot", use_container_width=True)
+
+    # Create navigation sidebar
+    sidebar = st.sidebar.radio("Navigate", ("Home", "Offline Mode", "Community", "Search"))
+
+    if sidebar == "Home":
+        # Home screen with categories, news feed, and options for the new features
+        st.header("Personalized News Feed")
+        st.write("Here’s a quick look at the latest stories!")
+        
+        # Categories to simulate personalized content
+        categories = ["Top Stories", "Technology", "Business", "Sports", "Entertainment"]
+        
+        for category in categories:
+            st.subheader(f"Category: {category}")
+            st.write(f"Latest news about {category}...")
+            st.write("-" * 40)
+
+    elif sidebar == "Offline Mode":
+        # Offline Mode simulation - Download articles
+        st.header("Offline Mode: Download News for Later")
+        
+        # List of available articles to "download"
+        articles = [
+            {"title": "Tech Breakthrough: AI Advancements", "category": "Technology", "downloaded": False},
+            {"title": "Breaking: Stock Market Hits Record High", "category": "Business", "downloaded": False},
+            {"title": "World Cup: Latest Updates", "category": "Sports", "downloaded": False},
+            {"title": "Entertainment News: Top Movies of the Year", "category": "Entertainment", "downloaded": False}
+        ]
+        
+        # Simulate downloading articles
+        for i, article in enumerate(articles):
+            download_button = st.button(f"Download {article['title']}")
+            if download_button:
+                st.write(f"Downloaded: {article['title']} for offline reading.")
+                articles[i]["downloaded"] = True
+                
+        # Show currently downloaded articles
+        st.subheader("Downloaded Articles")
+        for article in articles:
+            if article["downloaded"]:
+                st.write(f"- {article['title']} ({article['category']})")
+    
+    elif sidebar == "Community":
+        # Community Engagement: User comments, ratings, and news submission
+        st.header("Community Engagement: Share Your Thoughts")
+        
+        # Comment Section for a news article
+        article_title = st.selectbox("Choose an article to comment on:", ["Tech Breakthrough: AI Advancements", "Stock Market Record", "World Cup Updates", "Top Movies of the Year"])
+        
+        comment = st.text_area(f"Comment on {article_title}:")
+        if comment:
+            st.write(f"Thank you for your comment: {comment}")
+        
+        # Simulate liking the article
+        like_button = st.button("Like This Article")
+        if like_button:
+            st.write(f"You liked the article: {article_title}")
+        
+        # Submit news (user-generated content)
+        submitted_news = st.text_area("Submit Your News Snippet")
+        if submitted_news:
+            st.write(f"Your news has been submitted: {submitted_news}")
+    
+    elif sidebar == "Search":
+        # Search Functionality: Search and filter news
+        st.header("Search News Articles")
+        
+        # Search bar with filters
+        query = st.text_input("Enter a keyword or topic to search:")
+        if query:
+            st.write(f"Searching for: {query}")
+        
+        # Filter options
+        filter_category = st.selectbox("Filter by category", ["All", "Technology", "Business", "Sports", "Entertainment"])
+        if filter_category != "All":
+            st.write(f"Filtering by: {filter_category}")
+        
+        # Display search results (simulated)
+        st.write(f"Results for '{query}' in {filter_category}:")
+        st.write("-" * 40)
+        st.write(f"1. {query} article 1 (from {filter_category})")
+        st.write(f"2. {query} article 2 (from {filter_category})")
+        st.write(f"3. {query} article 3 (from {filter_category})")
+
+
 
 elif project_selection == "Project 3":
     st.subheader("Project 3: Business Metrics Dashboard")
