@@ -285,7 +285,7 @@ if project_selection == "Business Analysis":
 elif project_selection == "Product Analysis":
 
     # Load logo image
-    logo_path = Path(__file__).parent / 'Inshorts.png'  # Replace this with the actual path to your logo image file
+    logo_path = Path(__file__).parent / Inshorts.png'  # Replace this with the actual path to your logo image file
 
     # Set header with logo and title using markdown
     st.markdown("""
@@ -303,7 +303,7 @@ elif project_selection == "Product Analysis":
             <img src="{}" alt="Inshorts Logo">
             <h1>Inshorts</h1>
         </div>
-    """.format(logo_path), unsafe_allow_html=True)
+    """.format(logo_path=logo_path), unsafe_allow_html=True)
 
     st.write("""
         This is a product design for the Inshorts app. In this design I have explored potential improvements to the app with the following new features:
