@@ -289,12 +289,7 @@ if project_selection == "Business Analysis":
     
 elif project_selection == "Product Analysis 1":
     import streamlit as st
-
-    # Set the title and page config
-    st.set_page_config(page_title="Inshorts - Product Design", page_icon="📱")
-
-    # Add a header and introduction
-    st.title("Inshorts App - Product Design")
+    
     st.write("""
         Welcome to the product design for the Inshorts app with new features:
         - **Offline Mode**
