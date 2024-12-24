@@ -56,7 +56,7 @@ with col1:
 
 with col2:
     # Add an image (replace with your own image URL or path)
-    st.image("manager.png", width=250)
+    st.image("manager.png", width=150)
 
 # Create a radio button for navigating through projects
 st.header("My Projects")
