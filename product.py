@@ -45,10 +45,10 @@ with col1:
     # Add an "About Me" section
     st.header("About Me")
     st.write("""
-    Hi there! I'm Shreyas Kosale. Welcome to my Data & Product Portfolio.  
+    Hi there! I'm Shreyas Kosale. 
+    Welcome to my Data & Product Portfolio.  
     I'm passionate about building amazing products and leveraging the power of data.""")
-    st.write("""
-        I'm a product enthusiast with a background in business analytics.  
+    st.write("""I'm a product enthusiast with a background in business analytics.  
         I enjoy creating innovative solutions that solve real-world problems.
         """)
     st.write("Qualifications : Masters in Big Data Analytics - 2023")
