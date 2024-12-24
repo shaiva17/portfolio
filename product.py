@@ -285,7 +285,7 @@ if project_selection == "Business Analysis":
 elif project_selection == "Product Analysis":
 
     # Load logo image
-    logo_path = "Inshorts.png"  # Replace this with the actual path to your logo image file
+    logo_path = Path(__file__).parent / 'Inshorts.png'  # Replace this with the actual path to your logo image file
 
     # Set header with logo and title using markdown
     st.markdown("""
@@ -394,8 +394,8 @@ with contact_col1:
     st.write("""
         Feel free to reach out to me via email or social media:
     """)
-    st.write("[Email me](mailto:your-email@example.com)")
-    st.write("[LinkedIn](https://www.linkedin.com/in/your-profile)")
+    st.write("[Email me](mailto:shreyas.kosale@gmail.com)")
+    st.write("[LinkedIn](https://www.linkedin.com/in/shreyas-kosale)")
 
 with contact_col2:
     st.write("""
