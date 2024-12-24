@@ -282,104 +282,93 @@ if project_selection == "Business Analysis":
 
 
 
-
-
-
-
-    
 elif project_selection == "Product Analysis 1":
-    import streamlit as st
     
     st.write("""
-        Welcome to the product design for the Inshorts app with new features:
+        This is a product design for the Inshorts app. In this design I have explored potential improvements to the app with the following new features:
         - **Offline Mode**
         - **Community Engagement**
         - **Improved Search**
     """)
 
-    # Create navigation sidebar
-    sidebar = st.sidebar.radio("Navigate", ("Home", "Offline Mode", "Community", "Search"))
+    # Section 1: Offline Mode
+    st.header("1. Offline Mode")
+    st.subheader("Objective:")
+    st.write("""
+        Allow users to access news even when they don’t have an active internet connection. 
+        The idea is to enable users to download articles or sections of news for offline reading, making the app more flexible for users on the go.
+    """)
+    st.subheader("User Flow:")
+    st.write("""
+        - Users can download articles or sections of news to read later.
+        - Offline content will be available under a specific "Offline" section in the app.
+    """)
+    st.subheader("Interface Design:")
+    st.write("""
+        - **New Section**: A button "Offline News" in the app navigation bar. This section displays all downloaded content with a date and time it was last updated.
+        - **Article Download**: Add a "Download for Offline" option next to each article or category. This allows users to download entire sections (e.g., "Top Stories," "Technology," etc.) or just specific articles they want to read later.
+        - **Offline Indicator**: While reading offline, a small "Offline" tag will appear at the top of the article to indicate that the content is available offline.
+    """)
+    st.subheader("Wireframe:")
+    st.write("""
+        - **Main Screen**: A navigation bar at the top with a new "Offline" button. Clear indicator for available offline content.
+        - **Article Page**: Button to download articles for offline reading. Offline content will be automatically updated once the internet connection is restored.
+    """)
 
-    if sidebar == "Home":
-        # Home screen with categories, news feed, and options for the new features
-        st.header("Personalized News Feed")
-        st.write("Here’s a quick look at the latest stories!")
-        
-        # Categories to simulate personalized content
-        categories = ["Top Stories", "Technology", "Business", "Sports", "Entertainment"]
-        
-        for category in categories:
-            st.subheader(f"Category: {category}")
-            st.write(f"Latest news about {category}...")
-            st.write("-" * 40)
+    # Section 2: Community Engagement
+    st.header("2. Community Engagement")
+    st.subheader("Objective:")
+    st.write("""
+        Improve user engagement by allowing comments, discussions, and user-generated content. This would encourage users to participate more actively and form a stronger community around the app.
+    """)
+    st.subheader("User Flow:")
+    st.write("""
+        - Users can comment on articles, vote on news stories, and contribute short-form news updates.
+    """)
+    st.subheader("Interface Design:")
+    st.write("""
+        - **Comment Section**: Each news article will have a “Comments” section at the bottom where users can leave their thoughts or engage in discussions. A small button "Write a comment" will allow users to start a discussion.
+        - **User Feedback**: Implement a "Like" and "Dislike" button to let users rate the content. A "Report Issue" option can allow users to flag misleading or incorrect content.
+        - **User-Generated Content**: A "Submit Your News" feature where users can contribute short summaries of breaking news. Submitted news will undergo a quick review before being published on the platform.
+        - **Community Feed**: A new "Community" section that curates the most liked or commented news items, providing a space for popular discussions.
+    """)
+    st.subheader("Wireframe:")
+    st.write("""
+        - **Article Page**: "Comments" section at the bottom with the option to add a new comment. “Like”/“Dislike” buttons and "Report Issue" for user feedback.
+        - **Community Feed**: A separate tab where the most popular comments, discussions, or user-contributed content appears. Filters to view community contributions based on categories.
+    """)
 
-    elif sidebar == "Offline Mode":
-        # Offline Mode simulation - Download articles
-        st.header("Offline Mode: Download News for Later")
-        
-        # List of available articles to "download"
-        articles = [
-            {"title": "Tech Breakthrough: AI Advancements", "category": "Technology", "downloaded": False},
-            {"title": "Breaking: Stock Market Hits Record High", "category": "Business", "downloaded": False},
-            {"title": "World Cup: Latest Updates", "category": "Sports", "downloaded": False},
-            {"title": "Entertainment News: Top Movies of the Year", "category": "Entertainment", "downloaded": False}
-        ]
-        
-        # Simulate downloading articles
-        for i, article in enumerate(articles):
-            download_button = st.button(f"Download {article['title']}")
-            if download_button:
-                st.write(f"Downloaded: {article['title']} for offline reading.")
-                articles[i]["downloaded"] = True
-                
-        # Show currently downloaded articles
-        st.subheader("Downloaded Articles")
-        for article in articles:
-            if article["downloaded"]:
-                st.write(f"- {article['title']} ({article['category']})")
+    # Section 3: Improved Search
+    st.header("3. Improved Search")
+    st.subheader("Objective:")
+    st.write("""
+        Improve search functionality to make it more intuitive and filterable. Users should be able to find articles more easily, whether they're searching for a specific topic or trying to sort articles by relevance or date.
+    """)
+    st.subheader("User Flow:")
+    st.write("""
+        - Users can easily search for specific topics, dates, or keywords. They can also filter results by categories, popularity, or recency.
+    """)
+    st.subheader("Interface Design:")
+    st.write("""
+        - **Search Bar**: The search bar at the top will have an enhanced auto-suggest feature that suggests topics, keywords, or even categories (e.g., Sports, Politics).
+        - **Search Filters**: After a search query, users will be able to filter results by categories (e.g., "Technology," "Business"), date (e.g., "Today," "Last 7 Days"), or relevance. A new "Advanced Search" option will allow for more granular filtering (e.g., news related to a particular region or specific sources).
+        - **Search Results Page**: The results page will have clean tabs: "All Results," "Popular," "Latest," and "Saved" (for articles the user has saved for later). Each result will show the article’s date and a brief snippet of content to help users quickly assess the relevance.
+    """)
+    st.subheader("Wireframe:")
+    st.write("""
+        - **Search Page**: Enhanced search bar at the top with auto-suggestions. Filters to refine search by date, category, and relevance. Results displayed in an easy-to-read list with relevant snippets.
+        - **Advanced Search**: A side panel or modal with more search options (e.g., source, location).
+    """)
+
+    # Conclusion
+    st.header("Conclusion")
+    st.write("""
+        These new features aim to significantly improve the Inshorts app by making it more user-friendly and engaging. Whether it's downloading news for offline reading, allowing users to contribute and discuss news, or making search more intuitive, these enhancements will increase both user satisfaction and app usage.
+    """)
+
+
+
     
-    elif sidebar == "Community":
-        # Community Engagement: User comments, ratings, and news submission
-        st.header("Community Engagement: Share Your Thoughts")
-        
-        # Comment Section for a news article
-        article_title = st.selectbox("Choose an article to comment on:", ["Tech Breakthrough: AI Advancements", "Stock Market Record", "World Cup Updates", "Top Movies of the Year"])
-        
-        comment = st.text_area(f"Comment on {article_title}:")
-        if comment:
-            st.write(f"Thank you for your comment: {comment}")
-        
-        # Simulate liking the article
-        like_button = st.button("Like This Article")
-        if like_button:
-            st.write(f"You liked the article: {article_title}")
-        
-        # Submit news (user-generated content)
-        submitted_news = st.text_area("Submit Your News Snippet")
-        if submitted_news:
-            st.write(f"Your news has been submitted: {submitted_news}")
-    
-    elif sidebar == "Search":
-        # Search Functionality: Search and filter news
-        st.header("Search News Articles")
-        
-        # Search bar with filters
-        query = st.text_input("Enter a keyword or topic to search:")
-        if query:
-            st.write(f"Searching for: {query}")
-        
-        # Filter options
-        filter_category = st.selectbox("Filter by category", ["All", "Technology", "Business", "Sports", "Entertainment"])
-        if filter_category != "All":
-            st.write(f"Filtering by: {filter_category}")
-        
-        # Display search results (simulated)
-        st.write(f"Results for '{query}' in {filter_category}:")
-        st.write("-" * 40)
-        st.write(f"1. {query} article 1 (from {filter_category})")
-        st.write(f"2. {query} article 2 (from {filter_category})")
-        st.write(f"3. {query} article 3 (from {filter_category})")
-
 
 
 elif project_selection == "Project 3":
