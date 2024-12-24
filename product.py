@@ -378,7 +378,7 @@ with contact_col1:
     """)
     st.write("[Email](mailto:shreyas.kosale@gmail.com)")
     phone_number = "9699644328"
-    st.write([Call](tel:{phone_number})")
+    st.write("[Call](tel:{phone_number})")
     st.write("[LinkedIn](https://www.linkedin.com/in/shreyas-kosale)")
 
 with contact_col2:
