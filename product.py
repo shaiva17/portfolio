@@ -33,7 +33,7 @@ with header_col2:
         # Shreyas Kosale
         ## Product Enthusiast & Data Analytics Expert
     """)
-    #st.write("shreyas.kosale@gmail.com | 9699644328")
+    st.write("shreyas.kosale@gmail.com | 9699644328")
     st.write("Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.")
 
 # Add an introduction section
