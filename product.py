@@ -25,7 +25,7 @@ header_col1, header_col2 = st.columns([1, 4])  # Adjust column widths as needed
 
 with header_col1:
     # Add an image at the top left corner (adjust size if needed)
-    st.image("Shreyas.jpg", width=100)
+    st.image("Shreyas.jpg", height = 300, width=100)
 
 with header_col2:
     # Add your name and details
@@ -51,8 +51,8 @@ with col1:
     st.write("""
         I'm a product enthusiast with a background in business analytics.  
         I enjoy creating innovative solutions that solve real-world problems.
-        Qualifications : Masters in Big Data Analytics - 2023
         """)
+    st.write("Qualifications : Masters in Big Data Analytics - 2023")
 
 with col2:
     # Add an image (replace with your own image URL or path)
