@@ -285,7 +285,7 @@ if project_selection == "Business Analysis":
 elif project_selection == "Product Analysis":
 
     # Load logo image
-    logo_path = "inshorts.png"  # Replace this with the actual path to your logo image file
+    logo_path = "Inshorts.png"  # Replace this with the actual path to your logo image file
 
     # Set header with logo and title using markdown
     st.markdown("""
