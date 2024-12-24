@@ -12,14 +12,13 @@ st.set_page_config(page_title="Product Portfolio - Shreyas", page_icon="product-
 
 DATA_FILENAME = Path(__file__).parent / 'data/base.csv'
 df = pd.read_csv(DATA_FILENAME)
-df = df.dropna(axis=1, how='all')
 # Convert 'order-date' to datetime format (in case it's not already in datetime format)
 df['order-date'] = pd.to_datetime(df['order-date'], format='%Y-%m-%d', errors='coerce')
 #df['order-date'] = df['order-date'].dt.date  # This will convert to just the date part
 
 df['revenue'] = pd.to_numeric(df['revenue'],errors='coerce')
 df['revenue'] = df['revenue'].round(0)
-
+df = df.dropna(axis=1, how='all')
 
 # Create a header with image and personal details at the top
 header_col1, header_col2 = st.columns([1, 4])  # Adjust column widths as needed
