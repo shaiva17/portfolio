@@ -374,21 +374,23 @@ contact_col1, contact_col2 = st.columns(2)
 
 with contact_col1:
     st.write("""
-        Feel free to reach out to me via email or social media:
+        Feel free to reach out to me via email or phone:
     """)
     st.write("[Email me](mailto:shreyas.kosale@gmail.com)")
+    phone_number = "9699644328"
+    st.markdown(f"### Call : [📞 {phone_number}](tel:{phone_number})")
     st.write("[LinkedIn](https://www.linkedin.com/in/shreyas-kosale)")
 
 with contact_col2:
     st.write("""
-        You can also check out my GitHub profile for some of my open-source projects:
+        My LinkedIn profile :
     """)
-    st.write("[GitHub](https://github.com/your-profile)")
+    st.write("[LinkedIn](https://www.linkedin.com/in/shreyas-kosale)")
 
 # Footer section with custom styling
 st.markdown("""
     ---
-    Built with ❤️ using [Streamlit](https://streamlit.io)  
+    Built using [Streamlit](https://streamlit.io)  
     © Shreyas Kosale 2024
 """)
 
