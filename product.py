@@ -282,30 +282,13 @@ if project_selection == "Business Analysis":
 
 
 elif project_selection == "Product Analysis":
+    
+    st.write(""" This is a product design for :""")
+    st.image("Inshorts.png", use_container_width=True)
 
-    # Load logo image
-    logo_path = "Inshorts.png"  # Replace this with the actual path to your logo image file
-
-    # Set header with logo and title using markdown
-    st.markdown(f"""
-        <style>
-            .title-container {{
-                display: flex;
-                align-items: center;
-            }}
-            .title-container img {{
-                height: 25px;  /* Adjust size as needed */
-                margin-right: 10px;
-            }}
-        </style>
-        <div class="title-container">
-            <img src="{logo_path}" alt="Inshorts Logo">
-            <h1>Inshorts</h1>
-        </div>
-    """, unsafe_allow_html=True)
 
     st.write("""
-        This is a product design for the Inshorts app. In this design I have explored potential improvements to the app with the following new features:
+        In this design I have explored potential improvements to the app with the following new features:
         - **Offline Mode**
         - **Community Engagement**
         - **Improved Search**
