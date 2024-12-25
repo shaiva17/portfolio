@@ -103,8 +103,6 @@ if project_selection == "Business Analysis":
     filtered_df = filtered_df[(filtered_df['order-date'] >= pd.to_datetime(start_date)) &
                               (filtered_df['order-date'] <= pd.to_datetime(end_date))]
 
-    st.subheader(f"KPI's")
-    # st.write(f'Selected Data: Category - {category_filter}, Zone - {zone_filter}, Platform - {platform_filter}')
 
     # --- Display Total Revenue and Units (Card Style) ---
     total_revenue = filtered_df['revenue'].sum()
@@ -120,9 +118,13 @@ if project_selection == "Business Analysis":
     # Calculating data for trend
     min_order_date = filtered_df['order-date'].min()
     first_day_current_month = min_order_date.replace(day=1)
+    month_name = first_day_current_month.strftime("%B")
     last_day_last_month = first_day_current_month - timedelta(days=1)
     first_day_last_month = last_day_last_month.replace(day=1)
-
+    
+    st.subheader(f"KPI's for the month of {month_name}")
+    st.write(f'Selected Data: Category - {category_filter}, Zone - {zone_filter}, Platform - {platform_filter}')
+ 
     fdf = df.copy()
 
     if 'All' in category_filter:
