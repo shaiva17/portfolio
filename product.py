@@ -66,6 +66,7 @@ if project_selection == "Business Analysis":
     st.write("""
         **Description**: An interative dashboard built using streamlit.  
         **Technologies Used**: Python, Streamlit.
+        ---
     """)
 
     # Sidebar filters
