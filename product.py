@@ -123,24 +123,43 @@ if project_selection == "Business Analysis":
     last_day_last_month = first_day_current_month - timedelta(days=1)
     first_day_last_month = last_day_last_month.replace(day=1)
 
+    last_month_df = fdf[(fdf['order-date'] >= first_day_last_month) & 
+                             (fdf['order-date'] <= last_day_last_month)]
+    lm_orders = last_month_df['order-no'].nunique()
+    last_month_revenue = last_month_df['revenue'].sum()
+    lmr_lakhs = last_month_revenue/100000
+    last_month_units = last_month_df['qty'].sum()
+    last_month_asp = round(last_month_revenue/last_month_units if last_month_units > 0 else 0)
+    last_month_aov = round(last_month_revenue/lm_orders if lm_orders > 0 else 0)
+    divisor = last_day_last_month.day
+    lm_rev_drr = last_month_revenue/divisor/100000
+    lm_units_drr = round(last_month_units/divisor if divisor > 0 else 0)
+    revenue_trend = drr_gmv - lm_rev_drr
+    rt = revenue_trend/lm_rev_drr*100
+    ut = ((drr_units-lm_units_drr)/lm_units_drr if lm_units_drr > 0 else 0)*100
+    aovt = ((aov-last_month_aov)/lm_units_drr if lm_units_drr > 0 else 0)*100
+
+
+
+    
     fdf = df.copy()
 
-    # if 'All' in category_filter:
-    #     fdf = fdf
-    # else:
-    #     fdf = fdf[fdf['category'].isin(category_filter)]
+    if 'All' in category_filter:
+        fdf = fdf
+    else:
+        fdf = fdf[fdf['category'].isin(category_filter)]
 
-    # # Filter by Customer Zone
-    # if 'All' in zone_filter:
-    #     fdf = fdf
-    # else:
-    #     fdf = fdf[fdf['cust-zone'].isin(zone_filter)]
+    # Filter by Customer Zone
+    if 'All' in zone_filter:
+        fdf = fdf
+    else:
+        fdf = fdf[fdf['cust-zone'].isin(zone_filter)]
 
-    # # Filter by Platform
-    # if 'All' in platform_filter:
-    #     fdf = fdf
-    # else:
-    #     fdf = fdf[fdf['platform'].isin(platform_filter)]
+    # Filter by Platform
+    if 'All' in platform_filter:
+        fdf = fdf
+    else:
+        fdf = fdf[fdf['platform'].isin(platform_filter)]
 
     # Display cards with KPI values
     col1, col2, col3 = st.columns(3)
