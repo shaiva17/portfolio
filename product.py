@@ -77,7 +77,7 @@ if project_selection == "Business Analysis":
         end_date = st.date_input("End Date", df['order-date'].max())
 
     # Add filters for category, customer zone, and platform
-    col11, col12, col3 = st.columns(3)
+    col11, col12, col13 = st.columns(3)
     with col11:
         category_filter = st.multiselect('Select Category', ['All'] + list(df['category'].unique()), default=['All'])
     with col12:
