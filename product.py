@@ -14,7 +14,7 @@ DATA_FILENAME = Path(__file__).parent / 'data/base.csv'
 df = pd.read_csv(DATA_FILENAME)
 df = df.dropna(axis=1, how='all')
 # Convert 'order-date' to datetime format (in case it's not already in datetime format)
-df['order-date'] = pd.to_datetime(df['order-date'], format='%Y-%m-%d', errors='coerce')
+df['order-date'] = pd.to_datetime(df['order-date'], format='%d-%m-%Y', errors='coerce')
 #df['order-date'] = df['order-date'].dt.date  # This will convert to just the date part
 
 
