@@ -388,6 +388,9 @@ elif project_selection == "Product Analysis":
     st.write("""
         These new features aim to significantly improve the Inshorts app by making it more user-friendly and engaging. Whether it's downloading news for offline reading, allowing users to contribute and discuss news, or making search more intuitive, these enhancements will increase both user satisfaction and app usage.
     """)
+st.markdown("""
+    ---
+""")
 
 
 st.header("Contact Me")
