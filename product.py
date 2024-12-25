@@ -64,7 +64,7 @@ project_selection = st.radio(
 if project_selection == "Business Analysis":
     st.subheader("Project 1: Business Dashboard")
     st.write("""
-        **Description**: An interative dashboard built using streamlit.  
+        **Description**: An interactive dashboard displaying KPIs for the latest month from the selected time range, DRR trend vs. the previous month, time-based revenue trend, and category/geographic breakdown.   
         **Technologies Used**: Python, Streamlit.
     """)
     st.markdown("""
@@ -139,18 +139,24 @@ if project_selection == "Business Analysis":
 
     if 'All' in category_filter:
         fdf = fdf
+    elif len(category_filter) == 0 or (len(category_filter) == 1 and category_filter[0] == ''):
+        st.warning("Please select at least one category.")
     else:
         fdf = fdf[fdf['category'].isin(category_filter)]
 
     # Filter by Customer Zone
     if 'All' in zone_filter:
         fdf = fdf
+    elif len(zone_filter) == 0 or (len(zone_filter) == 1 and zone_filter[0] == ''):
+        st.warning("Please select at least one zone.")
     else:
         fdf = fdf[fdf['cust-zone'].isin(zone_filter)]
 
     # Filter by Platform
     if 'All' in platform_filter:
         fdf = fdf
+    elif len(platform_filter) == 0 or (len(platform_filter) == 1 and platform_filter[0] == ''):
+        st.warning("Please select at least one platform.")
     else:
         fdf = fdf[fdf['platform'].isin(platform_filter)]
 
