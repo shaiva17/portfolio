@@ -32,7 +32,7 @@ with header_col2:
         ## Product Enthusiast & Data Analytics Expert
     """)
     st.write("shreyas.kosale@gmail.com | 9699644328")
-    st.write("Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.")
+    #st.write("Passionate about building innovative products that solve real-world problems. Leveraging data and analytics to make informed decisions and drive product strategies.")
 
 # Add an introduction section
 
@@ -342,11 +342,11 @@ elif project_selection == "Product Analysis":
         - **Article Download**: Add a "Download for Offline" option next to each article or category. This allows users to download entire sections (e.g., "Top Stories," "Technology," etc.) or just specific articles they want to read later.
         - **Offline Indicator**: While reading offline, a small "Offline" tag will appear at the top of the article to indicate that the content is available offline.
     """)
-    st.subheader("Wireframe:")
-    st.write("""
-        - **Main Screen**: A navigation bar at the top with a new "Offline" button. Clear indicator for available offline content.
-        - **Article Page**: Button to download articles for offline reading. Offline content will be automatically updated once the internet connection is restored.
-    """)
+    # st.subheader("Wireframe:")
+    # st.write("""
+    #     - **Main Screen**: A navigation bar at the top with a new "Offline" button. Clear indicator for available offline content.
+    #     - **Article Page**: Button to download articles for offline reading. Offline content will be automatically updated once the internet connection is restored.
+    # """)
 
     # Section 2: Community Engagement
     st.header("2. Community Engagement")
@@ -365,11 +365,11 @@ elif project_selection == "Product Analysis":
         - **User-Generated Content**: A "Submit Your News" feature where users can contribute short summaries of breaking news. Submitted news will undergo a quick review before being published on the platform.
         - **Community Feed**: A new "Community" section that curates the most liked or commented news items, providing a space for popular discussions.
     """)
-    st.subheader("Wireframe:")
-    st.write("""
-        - **Article Page**: "Comments" section at the bottom with the option to add a new comment. “Like”/“Dislike” buttons and "Report Issue" for user feedback.
-        - **Community Feed**: A separate tab where the most popular comments, discussions, or user-contributed content appears. Filters to view community contributions based on categories.
-    """)
+    # st.subheader("Wireframe:")
+    # st.write("""
+    #     - **Article Page**: "Comments" section at the bottom with the option to add a new comment. “Like”/“Dislike” buttons and "Report Issue" for user feedback.
+    #     - **Community Feed**: A separate tab where the most popular comments, discussions, or user-contributed content appears. Filters to view community contributions based on categories.
+    # """)
 
     # Section 3: Improved Search
     st.header("3. Improved Search")
@@ -387,11 +387,11 @@ elif project_selection == "Product Analysis":
         - **Search Filters**: After a search query, users will be able to filter results by categories (e.g., "Technology," "Business"), date (e.g., "Today," "Last 7 Days"), or relevance. A new "Advanced Search" option will allow for more granular filtering (e.g., news related to a particular region or specific sources).
         - **Search Results Page**: The results page will have clean tabs: "All Results," "Popular," "Latest," and "Saved" (for articles the user has saved for later). Each result will show the article’s date and a brief snippet of content to help users quickly assess the relevance.
     """)
-    st.subheader("Wireframe:")
-    st.write("""
-        - **Search Page**: Enhanced search bar at the top with auto-suggestions. Filters to refine search by date, category, and relevance. Results displayed in an easy-to-read list with relevant snippets.
-        - **Advanced Search**: A side panel or modal with more search options (e.g., source, location).
-    """)
+    # st.subheader("Wireframe:")
+    # st.write("""
+    #     - **Search Page**: Enhanced search bar at the top with auto-suggestions. Filters to refine search by date, category, and relevance. Results displayed in an easy-to-read list with relevant snippets.
+    #     - **Advanced Search**: A side panel or modal with more search options (e.g., source, location).
+    # """)
 
     # Conclusion
     st.write("""
