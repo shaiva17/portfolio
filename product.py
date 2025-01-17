@@ -46,8 +46,7 @@ with col1:
     Hi there! I'm Shreyas Kosale. 
     Welcome to my Data & Product Portfolio.  
     I'm passionate about building amazing products and leveraging the power of data.""")
-    st.write("""I'm a product enthusiast with a background in business analytics.  
-        I enjoy creating innovative solutions that solve real-world problems.
+    st.write("""I'm a product enthusiast with a background in business analytics who enjoys creating innovative solutions that solve real-world problems.
         """)
     st.write("Qualifications : Masters in Big Data Analytics - 2023")
 
